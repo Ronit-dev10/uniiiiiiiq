@@ -8,6 +8,8 @@ interface FormInputProps {
   required?: boolean;
   icon?: ReactNode;
   className?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function FormInput({ 
