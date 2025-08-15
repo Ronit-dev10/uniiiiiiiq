@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'plus-jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -56,6 +59,43 @@ export default {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        // Uniiq design system colors
+        'uniiq': {
+          neutral: {
+            100: "#FFF",
+            200: "#E4E4E4", 
+            400: "#9F9C9C",
+            500: "#A7A7A7",
+            900: "#282828",
+            1000: "#0D0D0D",
+            1100: "#232323",
+            1200: "#0D0D0D",
+          },
+          gray: {
+            100: "#E3E3E3",
+            400: "#9F9C9C",
+            500: "#5A5555",
+          },
+          base: {
+            white: "#FDFDFD",
+            black: "#0A0A0B",
+          },
+          blue: {
+            primary: "#387FFF",
+            link: "#1165FF",
+          },
+          accent: {
+            1: "#9FB971",
+            2: "#FFD965", 
+            3: "#467896",
+            4: "#C17C74",
+          },
+          form: {
+            border: "#EAEFF4",
+            placeholder: "#A7A7A7",
+            text: "#232627",
+          }
         },
       },
       borderRadius: {
