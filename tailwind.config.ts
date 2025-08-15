@@ -87,10 +87,11 @@ export default {
           },
           accent: {
             1: "#9FB971",
-            2: "#FFD965", 
+            2: "#FFD965",
             3: "#467896",
             4: "#C17C74",
           },
+          'accent-2': "#BF9000",
           form: {
             border: "#EAEFF4",
             placeholder: "#A7A7A7",
