@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignUp } from "./pages/SignUp";
 import { SignIn } from "./pages/SignIn";
+import { MyPreferences } from "./pages/MyPreferences";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
