@@ -28,8 +28,8 @@ export function FormInput({
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>
-      <div className="relative flex items-center gap-4 px-3 py-[14px] 
-                      rounded border border-uniiq-form-border bg-white">
+      <div className="relative flex items-center gap-4 px-3 py-[14px]
+                      rounded border border-uniiq-neutral-200 bg-white">
         <input
           type={inputType}
           placeholder={placeholder}
