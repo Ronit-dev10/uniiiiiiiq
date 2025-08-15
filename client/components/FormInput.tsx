@@ -77,7 +77,7 @@ export function PhoneInput({
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>
-      <div className="flex items-center gap-4 p-2 rounded border border-uniiq-form-border bg-white">
+      <div className="flex items-center gap-4 p-2 rounded border border-uniiq-neutral-200 bg-white">
         <div className="flex items-center gap-1 px-[6px] py-[7px] 
                         rounded border border-gray-200/20 bg-uniiq-neutral-1000/[0.03]">
           <span className="font-plus-jakarta font-semibold text-[13px] leading-[18px] text-uniiq-neutral-1000">
