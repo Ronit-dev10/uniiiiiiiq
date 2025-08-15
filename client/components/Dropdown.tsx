@@ -11,9 +11,9 @@ interface DropdownProps {
   onChange?: (value: string) => void;
 }
 
-export function Dropdown({ 
-  label, 
-  placeholder = "--Select--", 
+export function Dropdown({
+  label,
+  placeholder = "--Select--",
   options = [],
   required = false,
   className = '',
@@ -22,6 +22,20 @@ export function Dropdown({
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value || '');
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleSelect = (option: string) => {
     setSelectedValue(option);
