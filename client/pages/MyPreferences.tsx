@@ -67,6 +67,17 @@ export function MyPreferences() {
     citizenship: ''
   });
 
+  // Load user data from session on component mount
+  useEffect(() => {
+    const session = userService.getCurrentSession();
+    if (session) {
+      setFormData(prev => ({
+        ...prev,
+        fullName: session.name || ''
+      }));
+    }
+  }, []);
+
   const gradeOptions = [
     '9th Grade', '10th Grade', '11th Grade', '12th Grade',
     'Undergraduate Year 1', 'Undergraduate Year 2',
