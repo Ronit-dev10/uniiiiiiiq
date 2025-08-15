@@ -8,6 +8,7 @@ import { FileUpload } from '../components/FileUpload';
 import { Checkbox } from '../components/Checkbox';
 
 export function SignUp() {
+  const navigate = useNavigate();
   const [agreeNewsletter, setAgreeNewsletter] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
 
@@ -15,6 +16,8 @@ export function SignUp() {
     e.preventDefault();
     // Handle form submission
     console.log('Sign up form submitted');
+    // Redirect to preferences page after successful sign up
+    navigate('/preferences');
   };
 
   return (
