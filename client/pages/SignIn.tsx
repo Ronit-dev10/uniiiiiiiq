@@ -15,6 +15,15 @@ export function SignIn() {
     navigate('/preferences');
   };
 
+  const handleSocialLogin = (provider: string) => {
+    console.log(`Social login with ${provider}`);
+    // In a real app, this would initiate OAuth flow
+    // For demo, redirect to preferences after a brief delay
+    setTimeout(() => {
+      navigate('/preferences');
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-white font-plus-jakarta">
       <div className="flex flex-col lg:flex-row max-w-[1440px] mx-auto">
