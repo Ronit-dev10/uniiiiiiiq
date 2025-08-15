@@ -88,6 +88,7 @@ export function SignIn() {
 
   return (
     <div className="min-h-screen bg-white font-plus-jakarta">
+      <NotificationContainer />
       <div className="flex flex-col lg:flex-row max-w-[1440px] mx-auto">
         {/* Left Side - Illustration and Welcome Text */}
         <div className="w-full lg:w-[666px] relative px-6 py-8 lg:px-[13px] lg:py-[26px] order-2 lg:order-1">
