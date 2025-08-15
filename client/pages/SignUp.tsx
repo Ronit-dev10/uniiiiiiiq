@@ -11,24 +11,109 @@ import { userService } from '../services/userService';
 
 export function SignUp() {
   const navigate = useNavigate();
+  const { showSuccess, showError, NotificationContainer } = useNotification();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    password: '',
+    confirmPassword: ''
+  });
+
   const [agreeNewsletter, setAgreeNewsletter] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const validateForm = () => {
+    if (!formData.name.trim()) {
+      showError('Please enter your name');
+      return false;
+    }
+    if (!formData.email.trim()) {
+      showError('Please enter your email');
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      showError('Please enter a valid email address');
+      return false;
+    }
+    if (!formData.password) {
+      showError('Please enter a password');
+      return false;
+    }
+    if (formData.password.length < 6) {
+      showError('Password must be at least 6 characters long');
+      return false;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      showError('Passwords do not match');
+      return false;
+    }
+    if (!agreeTerms) {
+      showError('You must agree to the Terms & Conditions');
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Sign up form submitted');
-    // Redirect to preferences page after successful sign up
-    navigate('/preferences');
+
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+
+    // Create account using userService
+    const result = userService.signUp({
+      email: formData.email,
+      password: formData.password,
+      name: formData.name,
+      phoneNumber: formData.phoneNumber,
+      agreeTerms,
+      agreeNewsletter
+    });
+
+    setIsLoading(false);
+
+    if (result.success) {
+      showSuccess(result.message);
+      setTimeout(() => {
+        navigate('/preferences');
+      }, 1500);
+    } else {
+      showError(result.message);
+    }
   };
 
   const handleSocialLogin = (provider: string) => {
-    console.log(`Social login with ${provider}`);
-    // In a real app, this would initiate OAuth flow
-    // For demo, redirect to preferences after a brief delay
-    setTimeout(() => {
-      navigate('/preferences');
-    }, 1000);
+    setIsLoading(true);
+
+    // Simulate social login with demo data
+    const demoUserInfo = {
+      email: `demo.${provider}@example.com`,
+      name: `Demo ${provider.charAt(0).toUpperCase() + provider.slice(1)} User`
+    };
+
+    const result = userService.socialLogin(
+      provider as 'google' | 'facebook' | 'apple',
+      demoUserInfo
+    );
+
+    setIsLoading(false);
+
+    if (result.success) {
+      showSuccess(result.message);
+      setTimeout(() => {
+        navigate('/preferences');
+      }, 1500);
+    } else {
+      showError(result.message);
+    }
   };
 
   return (
