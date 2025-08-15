@@ -12,13 +12,15 @@ interface FormInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function FormInput({ 
-  label, 
-  type = 'text', 
-  placeholder, 
-  required = false, 
+export function FormInput({
+  label,
+  type = 'text',
+  placeholder,
+  required = false,
   icon,
-  className = ''
+  className = '',
+  value,
+  onChange
 }: FormInputProps) {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === 'password';
