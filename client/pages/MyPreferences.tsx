@@ -118,9 +118,17 @@ export function MyPreferences() {
               <h1 className="font-plus-jakarta font-bold text-[28px] leading-[130%] text-uniiq-neutral-900 mb-3">
                 My Preferences
               </h1>
-              <p className="font-plus-jakarta text-[14px] leading-[134%] text-uniiq-neutral-800">
+              <p className="font-plus-jakarta text-[14px] leading-[134%] text-uniiq-neutral-800 mb-2">
                 Find ways to improve your academics, track your scores and access tutoring resources
               </p>
+              {(() => {
+                const session = userService.getCurrentSession();
+                return session ? (
+                  <div className="text-xs text-uniiq-blue-primary">
+                    Welcome back, {session.name}! ({session.email})
+                  </div>
+                ) : null;
+              })()}
             </div>
           </div>
 
