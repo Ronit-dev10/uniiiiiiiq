@@ -198,39 +198,66 @@ export function SignUp() {
               {/* Form Fields */}
               <div className="space-y-5">
                 {/* Name */}
-                <FormInput 
-                  label="Name" 
-                  placeholder="John Doe" 
-                  required 
+                <FormInput
+                  label="Name"
+                  placeholder="John Doe"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  required
                 />
 
                 {/* Email and Mobile Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <FormInput 
-                    label="Email Address" 
+                  <FormInput
+                    label="Email Address"
                     type="email"
-                    placeholder="johndoe@gmail.com" 
-                    required 
+                    placeholder="johndoe@gmail.com"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    required
                   />
-                  <PhoneInput 
-                    label="Mobile Number" 
-                    required 
-                  />
+                  <div className="flex flex-col gap-2.5">
+                    <label className="font-plus-jakarta font-semibold text-[15px] leading-[140%] text-uniiq-neutral-1100">
+                      Mobile Number <span className="text-red-500 ml-1">*</span>
+                    </label>
+                    <div className="flex items-center gap-4 p-2 rounded border border-uniiq-neutral-200 bg-white">
+                      <div className="flex items-center gap-1 px-[6px] py-[7px]
+                                      rounded border border-gray-200/20 bg-uniiq-neutral-1000/[0.03]">
+                        <span className="font-plus-jakarta font-semibold text-[13px] leading-[18px] text-uniiq-neutral-1000">
+                          +91
+                        </span>
+                        <ChevronDown size={16} />
+                      </div>
+                      <input
+                        type="tel"
+                        placeholder="(999) 999-9999"
+                        value={formData.phoneNumber}
+                        onChange={(e) => handleInputChange('phoneNumber', e.target.value)}
+                        className="flex-1 font-plus-jakarta text-[13px] leading-[18px]
+                                   text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400
+                                   outline-none bg-transparent"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Password Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <FormInput 
-                    label="Password" 
+                  <FormInput
+                    label="Password"
                     type="password"
-                    placeholder="**********" 
-                    required 
+                    placeholder="**********"
+                    value={formData.password}
+                    onChange={(e) => handleInputChange('password', e.target.value)}
+                    required
                   />
-                  <FormInput 
-                    label="Confirm Password" 
+                  <FormInput
+                    label="Confirm Password"
                     type="password"
-                    placeholder="**********" 
-                    required 
+                    placeholder="**********"
+                    value={formData.confirmPassword}
+                    onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
+                    required
                   />
                 </div>
 
