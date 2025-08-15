@@ -94,9 +94,9 @@ export function SignUp() {
 
               {/* Social Login Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
-                <SocialButton provider="google">Google</SocialButton>
-                <SocialButton provider="facebook">Facebook</SocialButton>
-                <SocialButton provider="apple">Apple</SocialButton>
+                <SocialButton provider="google" onSocialLogin={handleSocialLogin}>Google</SocialButton>
+                <SocialButton provider="facebook" onSocialLogin={handleSocialLogin}>Facebook</SocialButton>
+                <SocialButton provider="apple" onSocialLogin={handleSocialLogin}>Apple</SocialButton>
               </div>
 
               {/* Or divider */}
