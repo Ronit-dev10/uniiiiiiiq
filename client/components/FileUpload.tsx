@@ -26,7 +26,7 @@ export function FileUpload({
             <Upload size={26} className="text-black" />
             <div className="flex flex-col items-center gap-0.5">
               <div className="flex items-center justify-center gap-2.5">
-                <span className="font-plus-jakarta font-semibold text-[16px] leading-[27px] tracking-[-0.16px] text-uniiq-form-text">
+                <span className="font-plus-jakarta font-semibold text-[16px] leading-[27px] tracking-[-0.16px] text-uniiq-neutral-1100">
                   Click to upload
                 </span>
               </div>
