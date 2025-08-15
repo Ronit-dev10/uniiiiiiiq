@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, User, GraduationCap, Target, DollarSign } from 'lucide-react';
 import { FormInput } from '../components/FormInput';
 import { Dropdown } from '../components/Dropdown';
+import { userService } from '../services/userService';
 
 interface PreferenceSectionProps {
   id: string;
