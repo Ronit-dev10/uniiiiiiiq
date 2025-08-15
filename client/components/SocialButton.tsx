@@ -4,6 +4,7 @@ interface SocialButtonProps {
   provider: 'google' | 'facebook' | 'apple';
   children: ReactNode;
   onClick?: () => void;
+  onSocialLogin?: (provider: string) => void;
 }
 
 export function SocialButton({ provider, children, onClick }: SocialButtonProps) {
