@@ -9,22 +9,81 @@ import { userService } from '../services/userService';
 
 export function SignIn() {
   const navigate = useNavigate();
+  const { showSuccess, showError, NotificationContainer } = useNotification();
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const validateForm = () => {
+    if (!formData.email.trim()) {
+      showError('Please enter your email');
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      showError('Please enter a valid email address');
+      return false;
+    }
+    if (!formData.password) {
+      showError('Please enter your password');
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Sign in form submitted');
-    // Redirect to preferences page after successful sign in
-    navigate('/preferences');
+
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+
+    // Sign in using userService
+    const result = userService.signIn(formData.email, formData.password);
+
+    setIsLoading(false);
+
+    if (result.success) {
+      showSuccess(result.message);
+      setTimeout(() => {
+        navigate('/preferences');
+      }, 1500);
+    } else {
+      showError(result.message);
+    }
   };
 
   const handleSocialLogin = (provider: string) => {
-    console.log(`Social login with ${provider}`);
-    // In a real app, this would initiate OAuth flow
-    // For demo, redirect to preferences after a brief delay
-    setTimeout(() => {
-      navigate('/preferences');
-    }, 1000);
+    setIsLoading(true);
+
+    // Simulate social login with demo data
+    const demoUserInfo = {
+      email: `demo.${provider}@example.com`,
+      name: `Demo ${provider.charAt(0).toUpperCase() + provider.slice(1)} User`
+    };
+
+    const result = userService.socialLogin(
+      provider as 'google' | 'facebook' | 'apple',
+      demoUserInfo
+    );
+
+    setIsLoading(false);
+
+    if (result.success) {
+      showSuccess(result.message);
+      setTimeout(() => {
+        navigate('/preferences');
+      }, 1500);
+    } else {
+      showError(result.message);
+    }
   };
 
   return (
