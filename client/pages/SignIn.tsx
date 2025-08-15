@@ -168,24 +168,28 @@ export function SignIn() {
               {/* Form Fields */}
               <div className="space-y-5">
                 {/* Email */}
-                <FormInput 
-                  label="Email Address" 
+                <FormInput
+                  label="Email Address"
                   type="email"
-                  placeholder="johndoe@gmail.com" 
-                  required 
+                  placeholder="johndoe@gmail.com"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  required
                 />
 
                 {/* Password with Forgot Link */}
                 <div className="space-y-3">
-                  <FormInput 
-                    label="Password" 
+                  <FormInput
+                    label="Password"
                     type="password"
-                    placeholder="**********" 
-                    required 
+                    placeholder="**********"
+                    value={formData.password}
+                    onChange={(e) => handleInputChange('password', e.target.value)}
+                    required
                   />
                   <div className="text-right">
-                    <Link 
-                      to="/forgot-password" 
+                    <Link
+                      to="/forgot-password"
                       className="font-plus-jakarta text-[11px] text-uniiq-base-black hover:underline"
                     >
                       Forgot Password?
