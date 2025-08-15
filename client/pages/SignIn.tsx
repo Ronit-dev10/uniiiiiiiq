@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Logo } from '../components/Logo';
 import { SocialButton } from '../components/SocialButton';
