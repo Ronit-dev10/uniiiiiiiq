@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/preferences" element={<MyPreferences />} />
+          <Route path="/debug" element={<Debug />} />
           <Route path="/home" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
