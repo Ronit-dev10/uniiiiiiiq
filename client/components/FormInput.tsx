@@ -33,8 +33,8 @@ export function FormInput({
         <input
           type={inputType}
           placeholder={placeholder}
-          className="flex-1 font-plus-jakarta text-[14px] leading-[140%] tracking-[-0.28px] 
-                     text-uniiq-form-placeholder placeholder:text-uniiq-form-placeholder 
+          className="flex-1 font-plus-jakarta text-[14px] leading-[140%] tracking-[-0.28px]
+                     text-uniiq-neutral-1100 placeholder:text-uniiq-neutral-500
                      outline-none bg-transparent"
         />
         {isPassword && (
