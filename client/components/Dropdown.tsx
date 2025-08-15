@@ -44,7 +44,7 @@ export function Dropdown({
   };
 
   return (
-    <div className={`flex flex-col gap-2 ${className}`}>
+    <div ref={dropdownRef} className={`flex flex-col gap-2 ${className}`}>
       <label className="font-plus-jakarta font-semibold text-[15px] leading-[140%] text-uniiq-neutral-1100">
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
