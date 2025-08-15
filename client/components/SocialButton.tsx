@@ -64,9 +64,9 @@ export function SocialButton({ provider, children, onClick, onSocialLogin }: Soc
 
   return (
     <button
-      onClick={onClick}
-      className="flex flex-col items-center justify-center gap-2.5 flex-1 px-4 py-[9px] 
-                 rounded-[6px] border border-uniiq-gray-100 bg-uniiq-base-white 
+      onClick={handleClick}
+      className="flex flex-col items-center justify-center gap-2.5 flex-1 px-4 py-[9px]
+                 rounded-[6px] border border-uniiq-gray-100 bg-uniiq-base-white
                  hover:bg-gray-50 transition-colors"
     >
       <div className="flex items-center gap-[9px]">
