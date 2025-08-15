@@ -5,10 +5,14 @@ import { SocialButton } from '../components/SocialButton';
 import { FormInput } from '../components/FormInput';
 
 export function SignIn() {
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     console.log('Sign in form submitted');
+    // Redirect to preferences page after successful sign in
+    navigate('/preferences');
   };
 
   return (
