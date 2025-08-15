@@ -7,7 +7,35 @@ interface SocialButtonProps {
   onSocialLogin?: (provider: string) => void;
 }
 
-export function SocialButton({ provider, children, onClick }: SocialButtonProps) {
+export function SocialButton({ provider, children, onClick, onSocialLogin }: SocialButtonProps) {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else if (onSocialLogin) {
+      onSocialLogin(provider);
+    } else {
+      // Default social login simulation
+      console.log(`Attempting to sign in with ${provider}`);
+
+      // Simulate OAuth flow
+      switch (provider) {
+        case 'google':
+          window.open('https://accounts.google.com/oauth/authorize?client_id=demo&redirect_uri=' + encodeURIComponent(window.location.origin + '/auth/google/callback'), '_blank');
+          break;
+        case 'facebook':
+          window.open('https://www.facebook.com/v12.0/dialog/oauth?client_id=demo&redirect_uri=' + encodeURIComponent(window.location.origin + '/auth/facebook/callback'), '_blank');
+          break;
+        case 'apple':
+          window.open('https://appleid.apple.com/auth/authorize?client_id=demo&redirect_uri=' + encodeURIComponent(window.location.origin + '/auth/apple/callback'), '_blank');
+          break;
+      }
+
+      // For demo purposes, redirect to preferences after a short delay
+      setTimeout(() => {
+        window.location.href = '/preferences';
+      }, 1000);
+    }
+  };
   const getIcon = () => {
     switch (provider) {
       case 'google':
