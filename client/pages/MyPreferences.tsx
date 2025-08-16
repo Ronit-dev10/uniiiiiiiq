@@ -121,11 +121,11 @@ export function MyPreferences() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6">
               <Link
-                to="/home"
+                to="/dashboard"
                 className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
               >
                 <Home size={18} />
-                <span className="font-plus-jakarta font-medium">Home</span>
+                <span className="font-plus-jakarta font-medium">Dashboard</span>
               </Link>
               <Link
                 to="/debug"
