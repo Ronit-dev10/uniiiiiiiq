@@ -18,10 +18,10 @@ export function FileUpload({
       <label className="font-plus-jakarta font-semibold text-[15px] leading-[140%] text-uniiq-neutral-1100">
         {label}
       </label>
-      <div className="flex flex-col items-center justify-center gap-5 px-4 py-[18px] 
+      <div className="relative flex flex-col items-center justify-center gap-5 px-4 py-[18px]
                       rounded-xl border border-dashed border-uniiq-neutral-200 bg-white
                       hover:bg-gray-50 cursor-pointer transition-colors">
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 pointer-events-none">
           <div className="flex flex-col items-center gap-0.5">
             <Upload size={26} className="text-black" />
             <div className="flex flex-col items-center gap-0.5">
@@ -41,7 +41,7 @@ export function FileUpload({
         <input
           type="file"
           accept=".png,.jpg,.jpeg"
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
         />
       </div>
     </div>
