@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, User, GraduationCap, Target, DollarSign } from 'lucide-react';
+import { ArrowRight, User, GraduationCap, Target, DollarSign, LogOut, Home, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FormInput } from '../components/FormInput';
 import { Dropdown } from '../components/Dropdown';
 import { userService } from '../services/userService';
+import { Logo } from '../components/Logo';
 
 interface PreferenceSectionProps {
   id: string;
