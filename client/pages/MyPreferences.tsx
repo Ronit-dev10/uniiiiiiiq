@@ -111,6 +111,99 @@ export function MyPreferences() {
 
   return (
     <div className="min-h-screen bg-white font-plus-jakarta relative">
+      {/* Navigation Header */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-[1275px] mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Logo size="sm" />
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              <Link
+                to="/home"
+                className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
+              >
+                <Home size={18} />
+                <span className="font-plus-jakarta font-medium">Home</span>
+              </Link>
+              <Link
+                to="/debug"
+                className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
+              >
+                <span className="font-plus-jakarta font-medium">Debug</span>
+              </Link>
+              <div className="h-6 w-px bg-gray-300" />
+              <div className="flex items-center gap-3">
+                <span className="text-sm text-uniiq-neutral-800">
+                  {(() => {
+                    const session = userService.getCurrentSession();
+                    return session ? session.name : 'Guest';
+                  })()}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-red-600 transition-colors"
+                >
+                  <LogOut size={18} />
+                  <span className="font-plus-jakarta font-medium">Sign Out</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="md:hidden p-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
+            >
+              {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {showMobileMenu && (
+            <div className="md:hidden border-t border-gray-200 py-4">
+              <div className="flex flex-col space-y-3">
+                <Link
+                  to="/home"
+                  className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
+                  onClick={() => setShowMobileMenu(false)}
+                >
+                  <Home size={18} />
+                  <span className="font-plus-jakarta font-medium">Home</span>
+                </Link>
+                <Link
+                  to="/debug"
+                  className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
+                  onClick={() => setShowMobileMenu(false)}
+                >
+                  <span className="font-plus-jakarta font-medium">Debug</span>
+                </Link>
+                <div className="border-t border-gray-200 my-2" />
+                <div className="px-3 py-2">
+                  <span className="text-sm text-uniiq-neutral-800">
+                    Signed in as: {(() => {
+                      const session = userService.getCurrentSession();
+                      return session ? session.name : 'Guest';
+                    })()}
+                  </span>
+                </div>
+                <button
+                  onClick={() => {
+                    setShowMobileMenu(false);
+                    handleLogout();
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-red-600 hover:text-red-700 transition-colors"
+                >
+                  <LogOut size={18} />
+                  <span className="font-plus-jakarta font-medium">Sign Out</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+
       {/* Background decoration - keeping it subtle */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -left-6 top-[913px] w-[1501px] h-[331px]">
