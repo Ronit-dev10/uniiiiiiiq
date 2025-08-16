@@ -51,7 +51,8 @@ export function SignIn() {
     setIsLoading(false);
 
     if (result.success) {
-      showSuccess(result.message);
+      console.log('✅ Sign in successful:', result.user);
+      showSuccess(`Welcome back, ${result.user?.name}!`);
       setTimeout(() => {
         navigate('/preferences');
       }, 1500);
