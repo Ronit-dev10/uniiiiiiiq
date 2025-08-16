@@ -165,12 +165,12 @@ export function MyPreferences() {
             <div className="md:hidden border-t border-gray-200 py-4">
               <div className="flex flex-col space-y-3">
                 <Link
-                  to="/home"
+                  to="/dashboard"
                   className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-uniiq-blue-primary transition-colors"
                   onClick={() => setShowMobileMenu(false)}
                 >
                   <Home size={18} />
-                  <span className="font-plus-jakarta font-medium">Home</span>
+                  <span className="font-plus-jakarta font-medium">Dashboard</span>
                 </Link>
                 <Link
                   to="/debug"
