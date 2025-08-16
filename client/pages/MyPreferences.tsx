@@ -60,7 +60,9 @@ function PreferenceSection({
 }
 
 export function MyPreferences() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('personal');
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     age: '',
@@ -79,6 +81,11 @@ export function MyPreferences() {
       }));
     }
   }, []);
+
+  const handleLogout = () => {
+    userService.signOut();
+    navigate('/signin');
+  };
 
   const gradeOptions = [
     '9th Grade', '10th Grade', '11th Grade', '12th Grade',
