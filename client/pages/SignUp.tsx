@@ -84,7 +84,7 @@ export function SignUp() {
       console.log('✅ Account created and saved:', result.user);
       showSuccess(`Account created successfully! Welcome, ${result.user?.name}!`);
       setTimeout(() => {
-        navigate('/preferences');
+        navigate('/dashboard');
       }, 1500);
     } else {
       showError(result.message);
