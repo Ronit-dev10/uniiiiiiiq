@@ -1,38 +1,38 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { Logo } from '../components/Logo';
-import { SocialButton } from '../components/SocialButton';
-import { FormInput } from '../components/FormInput';
-import { useNotification } from '../components/Notification';
-import { userService } from '../services/userService';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Logo } from "../components/Logo";
+import { SocialButton } from "../components/SocialButton";
+import { FormInput } from "../components/FormInput";
+import { useNotification } from "../components/Notification";
+import { userService } from "../services/userService";
 
 export function SignIn() {
   const navigate = useNavigate();
   const { showSuccess, showError, NotificationContainer } = useNotification();
 
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const validateForm = () => {
     if (!formData.email.trim()) {
-      showError('Please enter your email');
+      showError("Please enter your email");
       return false;
     }
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      showError('Please enter a valid email address');
+      showError("Please enter a valid email address");
       return false;
     }
     if (!formData.password) {
-      showError('Please enter your password');
+      showError("Please enter your password");
       return false;
     }
     return true;
@@ -51,10 +51,10 @@ export function SignIn() {
     setIsLoading(false);
 
     if (result.success) {
-      console.log('✅ Sign in successful:', result.user);
+      console.log("✅ Sign in successful:", result.user);
       showSuccess(`Welcome back, ${result.user?.name}!`);
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate("/dashboard");
       }, 1500);
     } else {
       showError(result.message);
@@ -67,12 +67,12 @@ export function SignIn() {
     // Simulate social login with demo data
     const demoUserInfo = {
       email: `demo.${provider}@example.com`,
-      name: `Demo ${provider.charAt(0).toUpperCase() + provider.slice(1)} User`
+      name: `Demo ${provider.charAt(0).toUpperCase() + provider.slice(1)} User`,
     };
 
     const result = userService.socialLogin(
-      provider as 'google' | 'facebook' | 'apple',
-      demoUserInfo
+      provider as "google" | "facebook" | "apple",
+      demoUserInfo,
     );
 
     setIsLoading(false);
@@ -80,7 +80,7 @@ export function SignIn() {
     if (result.success) {
       showSuccess(result.message);
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate("/dashboard");
       }, 1500);
     } else {
       showError(result.message);
@@ -100,8 +100,8 @@ export function SignIn() {
 
           {/* Illustration */}
           <div className="flex justify-center items-center lg:absolute lg:left-[98px] lg:top-[145px] mb-8 lg:mb-0">
-            <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/00104347c0affdc2241623430ad0b20d6127d756?width=988" 
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/00104347c0affdc2241623430ad0b20d6127d756?width=988"
               alt="Student with graduation cap illustration"
               className="w-full max-w-[400px] lg:w-[494px] lg:h-[490px] object-contain"
             />
@@ -117,13 +117,14 @@ export function SignIn() {
                 <span className="font-bold text-2xl lg:text-4xl text-uniiq-neutral-1100 leading-[1.24] tracking-[-0.02em]">
                   uni
                 </span>
-                <span 
+                <span
                   className="font-bold text-2xl lg:text-4xl leading-[1.24] tracking-[-0.02em]"
                   style={{
-                    background: 'linear-gradient(140deg, #9FB971 9.66%, #FFD965 42.74%, #C17C74 74.68%, #467896 102.63%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
+                    background:
+                      "linear-gradient(140deg, #9FB971 9.66%, #FFD965 42.74%, #C17C74 74.68%, #467896 102.63%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
                   }}
                 >
                   iq
@@ -142,7 +143,9 @@ export function SignIn() {
             <form onSubmit={handleSubmit} className="space-y-7">
               {/* Header */}
               <div className="space-y-2">
-                <h1 className="font-bold text-[28px] text-uniiq-neutral-1200">Sign in</h1>
+                <h1 className="font-bold text-[28px] text-uniiq-neutral-1200">
+                  Sign in
+                </h1>
               </div>
 
               {/* Divider Line */}
@@ -153,9 +156,24 @@ export function SignIn() {
 
               {/* Social Login Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5">
-                <SocialButton provider="google" onSocialLogin={handleSocialLogin}>Google</SocialButton>
-                <SocialButton provider="facebook" onSocialLogin={handleSocialLogin}>Facebook</SocialButton>
-                <SocialButton provider="apple" onSocialLogin={handleSocialLogin}>Apple</SocialButton>
+                <SocialButton
+                  provider="google"
+                  onSocialLogin={handleSocialLogin}
+                >
+                  Google
+                </SocialButton>
+                <SocialButton
+                  provider="facebook"
+                  onSocialLogin={handleSocialLogin}
+                >
+                  Facebook
+                </SocialButton>
+                <SocialButton
+                  provider="apple"
+                  onSocialLogin={handleSocialLogin}
+                >
+                  Apple
+                </SocialButton>
               </div>
 
               {/* Or divider */}
@@ -175,7 +193,7 @@ export function SignIn() {
                   type="email"
                   placeholder="johndoe@gmail.com"
                   value={formData.email}
-                  onChange={(e) => handleInputChange('email', e.target.value)}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
                   required
                 />
 
@@ -186,7 +204,9 @@ export function SignIn() {
                     type="password"
                     placeholder="**********"
                     value={formData.password}
-                    onChange={(e) => handleInputChange('password', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("password", e.target.value)
+                    }
                     required
                   />
                   <div className="text-right">
@@ -209,7 +229,7 @@ export function SignIn() {
                            transition-colors"
                 >
                   <span className="font-plus-jakarta font-semibold text-[15px]">
-                    {isLoading ? 'Signing In...' : 'Submit'}
+                    {isLoading ? "Signing In..." : "Submit"}
                   </span>
                   {!isLoading && <ArrowRight size={18} />}
                 </button>
@@ -224,10 +244,10 @@ export function SignIn() {
               {/* Sign Up Link */}
               <div className="text-center">
                 <span className="font-plus-jakarta text-[14px] text-uniiq-base-black">
-                  Don't have an account? 
+                  Don't have an account?
                 </span>
-                <Link 
-                  to="/signup" 
+                <Link
+                  to="/signup"
                   className="font-plus-jakarta font-bold text-[14px] text-uniiq-blue-primary hover:underline ml-1"
                 >
                   Sign up

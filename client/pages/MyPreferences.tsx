@@ -1,10 +1,20 @@
-import { useState, useEffect } from 'react';
-import { ArrowRight, User, GraduationCap, Target, DollarSign, LogOut, Home, Menu, X } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FormInput } from '../components/FormInput';
-import { Dropdown } from '../components/Dropdown';
-import { userService } from '../services/userService';
-import { Logo } from '../components/Logo';
+import { useState, useEffect } from "react";
+import {
+  ArrowRight,
+  User,
+  GraduationCap,
+  Target,
+  DollarSign,
+  LogOut,
+  Home,
+  Menu,
+  X,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { FormInput } from "../components/FormInput";
+import { Dropdown } from "../components/Dropdown";
+import { userService } from "../services/userService";
+import { Logo } from "../components/Logo";
 
 interface PreferenceSectionProps {
   id: string;
@@ -16,32 +26,36 @@ interface PreferenceSectionProps {
   children?: React.ReactNode;
 }
 
-function PreferenceSection({ 
-  id, 
-  title, 
-  icon, 
-  isActive, 
-  isCompleted = false, 
-  onClick, 
-  children 
+function PreferenceSection({
+  id,
+  title,
+  icon,
+  isActive,
+  isCompleted = false,
+  onClick,
+  children,
 }: PreferenceSectionProps) {
   return (
     <div className="flex flex-col rounded-lg border border-gray-100/50 bg-uniiq-base-white shadow-sm">
-      <div 
+      <div
         className="flex items-center gap-2.5 px-7 py-[18px] border-b border-uniiq-gray-100 cursor-pointer"
         onClick={onClick}
       >
-        <div className={`flex items-center justify-center w-10 h-10 rounded-lg ${
-          isActive 
-            ? 'bg-yellow-100 text-uniiq-accent-2' 
-            : 'bg-gray-100 text-gray-400'
-        }`}>
+        <div
+          className={`flex items-center justify-center w-10 h-10 rounded-lg ${
+            isActive
+              ? "bg-yellow-100 text-uniiq-accent-2"
+              : "bg-gray-100 text-gray-400"
+          }`}
+        >
           {icon}
         </div>
         <div className="flex items-center gap-2.5">
-          <h3 className={`font-plus-jakarta font-semibold text-[18px] leading-[120%] ${
-            isActive ? 'text-uniiq-base-black' : 'text-uniiq-gray-400'
-          }`}>
+          <h3
+            className={`font-plus-jakarta font-semibold text-[18px] leading-[120%] ${
+              isActive ? "text-uniiq-base-black" : "text-uniiq-gray-400"
+            }`}
+          >
             {title}
           </h3>
         </div>
@@ -49,64 +63,75 @@ function PreferenceSection({
           <div className="w-1 h-10 bg-uniiq-accent-2 rounded-full ml-auto" />
         )}
       </div>
-      
-      {isActive && children && (
-        <div className="p-7">
-          {children}
-        </div>
-      )}
+
+      {isActive && children && <div className="p-7">{children}</div>}
     </div>
   );
 }
 
 export function MyPreferences() {
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState('personal');
+  const [activeSection, setActiveSection] = useState("personal");
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
-    age: '',
-    gradeClass: '',
-    schoolName: '',
-    citizenship: ''
+    fullName: "",
+    age: "",
+    gradeClass: "",
+    schoolName: "",
+    citizenship: "",
   });
 
   // Load user data from session on component mount
   useEffect(() => {
     const session = userService.getCurrentSession();
     if (session) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        fullName: session.name || ''
+        fullName: session.name || "",
       }));
     }
   }, []);
 
   const handleLogout = () => {
     userService.signOut();
-    navigate('/signin');
+    navigate("/signin");
   };
 
   const gradeOptions = [
-    '9th Grade', '10th Grade', '11th Grade', '12th Grade',
-    'Undergraduate Year 1', 'Undergraduate Year 2',
-    'Undergraduate Year 3', 'Undergraduate Year 4',
-    'Graduate Student'
+    "9th Grade",
+    "10th Grade",
+    "11th Grade",
+    "12th Grade",
+    "Undergraduate Year 1",
+    "Undergraduate Year 2",
+    "Undergraduate Year 3",
+    "Undergraduate Year 4",
+    "Graduate Student",
   ];
 
   const citizenshipOptions = [
-    'United States', 'Canada', 'United Kingdom', 'Australia',
-    'Germany', 'France', 'Japan', 'South Korea', 'India',
-    'China', 'Brazil', 'Mexico', 'Other'
+    "United States",
+    "Canada",
+    "United Kingdom",
+    "Australia",
+    "Germany",
+    "France",
+    "Japan",
+    "South Korea",
+    "India",
+    "China",
+    "Brazil",
+    "Mexico",
+    "Other",
   ];
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleNext = () => {
     // Move to next section or submit
-    console.log('Next clicked', formData);
+    console.log("Next clicked", formData);
   };
 
   return (
@@ -138,7 +163,7 @@ export function MyPreferences() {
                 <span className="text-sm text-uniiq-neutral-800">
                   {(() => {
                     const session = userService.getCurrentSession();
-                    return session ? session.name : 'Guest';
+                    return session ? session.name : "Guest";
                   })()}
                 </span>
                 <button
@@ -146,7 +171,9 @@ export function MyPreferences() {
                   className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-900 hover:text-red-600 transition-colors"
                 >
                   <LogOut size={18} />
-                  <span className="font-plus-jakarta font-medium">Sign Out</span>
+                  <span className="font-plus-jakarta font-medium">
+                    Sign Out
+                  </span>
                 </button>
               </div>
             </div>
@@ -170,7 +197,9 @@ export function MyPreferences() {
                   onClick={() => setShowMobileMenu(false)}
                 >
                   <Home size={18} />
-                  <span className="font-plus-jakarta font-medium">Dashboard</span>
+                  <span className="font-plus-jakarta font-medium">
+                    Dashboard
+                  </span>
                 </Link>
                 <Link
                   to="/debug"
@@ -182,9 +211,10 @@ export function MyPreferences() {
                 <div className="border-t border-gray-200 my-2" />
                 <div className="px-3 py-2">
                   <span className="text-sm text-uniiq-neutral-800">
-                    Signed in as: {(() => {
+                    Signed in as:{" "}
+                    {(() => {
                       const session = userService.getCurrentSession();
-                      return session ? session.name : 'Guest';
+                      return session ? session.name : "Guest";
                     })()}
                   </span>
                 </div>
@@ -196,7 +226,9 @@ export function MyPreferences() {
                   className="flex items-center gap-2 px-3 py-2 text-red-600 hover:text-red-700 transition-colors"
                 >
                   <LogOut size={18} />
-                  <span className="font-plus-jakarta font-medium">Sign Out</span>
+                  <span className="font-plus-jakarta font-medium">
+                    Sign Out
+                  </span>
                 </button>
               </div>
             </div>
@@ -221,7 +253,8 @@ export function MyPreferences() {
                 My Preferences
               </h1>
               <p className="font-plus-jakarta text-[14px] leading-[134%] text-uniiq-neutral-800">
-                Find ways to improve your academics, track your scores and access tutoring resources
+                Find ways to improve your academics, track your scores and
+                access tutoring resources
               </p>
             </div>
           </div>
@@ -234,25 +267,29 @@ export function MyPreferences() {
                 id="personal"
                 title="Personal Info"
                 icon={<User size={24} />}
-                isActive={activeSection === 'personal'}
-                onClick={() => setActiveSection('personal')}
+                isActive={activeSection === "personal"}
+                onClick={() => setActiveSection("personal")}
               >
                 <div className="space-y-6">
                   <div className="space-y-6">
                     {/* Name and Age Row */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormInput 
+                      <FormInput
                         label="Full Name *"
                         placeholder="John"
                         value={formData.fullName}
-                        onChange={(e) => handleInputChange('fullName', e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("fullName", e.target.value)
+                        }
                         required
                       />
-                      <FormInput 
+                      <FormInput
                         label="Age"
                         placeholder="18 years"
                         value={formData.age}
-                        onChange={(e) => handleInputChange('age', e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("age", e.target.value)
+                        }
                       />
                     </div>
 
@@ -262,17 +299,21 @@ export function MyPreferences() {
                       placeholder="--Select--"
                       options={gradeOptions}
                       value={formData.gradeClass}
-                      onChange={(value) => handleInputChange('gradeClass', value)}
+                      onChange={(value) =>
+                        handleInputChange("gradeClass", value)
+                      }
                       required
                     />
 
                     {/* School Name and Citizenship Row */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormInput 
+                      <FormInput
                         label="School Name *"
                         placeholder="Doo"
                         value={formData.schoolName}
-                        onChange={(e) => handleInputChange('schoolName', e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("schoolName", e.target.value)
+                        }
                         required
                       />
                       <Dropdown
@@ -280,7 +321,9 @@ export function MyPreferences() {
                         placeholder="Text"
                         options={citizenshipOptions}
                         value={formData.citizenship}
-                        onChange={(value) => handleInputChange('citizenship', value)}
+                        onChange={(value) =>
+                          handleInputChange("citizenship", value)
+                        }
                         required
                       />
                     </div>
@@ -294,7 +337,9 @@ export function MyPreferences() {
                                border border-uniiq-neutral-1100 rounded-md text-uniiq-neutral-1100
                                hover:bg-uniiq-neutral-1100 hover:text-white transition-colors"
                     >
-                      <span className="font-plus-jakarta font-semibold text-[15px]">Next</span>
+                      <span className="font-plus-jakarta font-semibold text-[15px]">
+                        Next
+                      </span>
                       <ArrowRight size={18} />
                     </button>
                   </div>
@@ -306,8 +351,8 @@ export function MyPreferences() {
                 id="academic"
                 title="Academic Preferences"
                 icon={<GraduationCap size={24} />}
-                isActive={activeSection === 'academic'}
-                onClick={() => setActiveSection('academic')}
+                isActive={activeSection === "academic"}
+                onClick={() => setActiveSection("academic")}
               >
                 <div className="text-center py-8 text-uniiq-gray-400">
                   <p>Academic preferences content will be added here</p>
@@ -319,8 +364,8 @@ export function MyPreferences() {
                 id="goals"
                 title="Goals"
                 icon={<Target size={24} />}
-                isActive={activeSection === 'goals'}
-                onClick={() => setActiveSection('goals')}
+                isActive={activeSection === "goals"}
+                onClick={() => setActiveSection("goals")}
               >
                 <div className="text-center py-8 text-uniiq-gray-400">
                   <p>Goals content will be added here</p>
@@ -332,8 +377,8 @@ export function MyPreferences() {
                 id="budget"
                 title="Budget"
                 icon={<DollarSign size={24} />}
-                isActive={activeSection === 'budget'}
-                onClick={() => setActiveSection('budget')}
+                isActive={activeSection === "budget"}
+                onClick={() => setActiveSection("budget")}
               >
                 <div className="text-center py-8 text-uniiq-gray-400">
                   <p>Budget content will be added here</p>
