@@ -2,18 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/server/node-build.mjs",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/spa/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/spa"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/server/node-build.mjs"
+      "dest": "/index.html"
     }
   ]
 }
