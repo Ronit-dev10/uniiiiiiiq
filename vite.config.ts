@@ -3,7 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
-  base: "./",
+  // Use "/" so Vercel serves assets correctly
+  base: "/",
   plugins: [react()],
   resolve: {
     alias: {
