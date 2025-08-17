@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "cleanUrls": false,
   "builds": [
     {
       "src": "package.json",
@@ -9,10 +10,10 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
