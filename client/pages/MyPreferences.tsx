@@ -44,8 +44,8 @@ function PreferenceSection({
             isActive
               ? "bg-yellow-100 text-uniiq-accent-2"
               : isCompleted
-              ? "bg-green-100 text-green-600"
-              : "bg-gray-100 text-gray-400"
+                ? "bg-green-100 text-green-600"
+                : "bg-gray-100 text-gray-400"
           }`}
         >
           {icon}
@@ -61,8 +61,20 @@ function PreferenceSection({
         </div>
         {isCompleted && (
           <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center ml-auto">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
         )}
@@ -164,7 +176,7 @@ export function MyPreferences() {
 
   const handleNext = (currentSection: string) => {
     // Mark current section as completed
-    setCompletedSections(prev => ({ ...prev, [currentSection]: true }));
+    setCompletedSections((prev) => ({ ...prev, [currentSection]: true }));
 
     // Move to next section
     if (currentSection === "personal") {
@@ -231,7 +243,9 @@ export function MyPreferences() {
           onClick={handleBack}
           className="flex items-center gap-2 px-3 py-2 text-uniiq-neutral-700 hover:text-uniiq-neutral-900 transition-all duration-200 hover:bg-white/10 rounded-lg"
         >
-          <span className="font-plus-jakarta font-medium text-[14px]">Skip, Back to Sign Up</span>
+          <span className="font-plus-jakarta font-medium text-[14px]">
+            Skip, Back to Sign Up
+          </span>
           <ArrowLeft size={16} />
         </button>
       </div>
@@ -364,7 +378,9 @@ export function MyPreferences() {
                       placeholder="--Select--"
                       options={boardOfEducationOptions}
                       value={formData.boardOfEducation}
-                      onChange={(value) => handleInputChange("boardOfEducation", value)}
+                      onChange={(value) =>
+                        handleInputChange("boardOfEducation", value)
+                      }
                       required
                     />
                     <Dropdown
@@ -372,7 +388,9 @@ export function MyPreferences() {
                       placeholder="--Select--"
                       options={subjectOptions}
                       value={formData.subjectsTaken}
-                      onChange={(value) => handleInputChange("subjectsTaken", value)}
+                      onChange={(value) =>
+                        handleInputChange("subjectsTaken", value)
+                      }
                       required
                     />
                   </div>
@@ -386,7 +404,9 @@ export function MyPreferences() {
                       <div className="flex-1 min-w-[200px]">
                         <select
                           value={formData.gradesSubject}
-                          onChange={(e) => handleInputChange("gradesSubject", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("gradesSubject", e.target.value)
+                          }
                           className="w-full px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 bg-white focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         >
                           <option value="">--Select Subject--</option>
@@ -402,7 +422,9 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Enter Score"
                           value={formData.gradesScore}
-                          onChange={(e) => handleInputChange("gradesScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("gradesScore", e.target.value)
+                          }
                           className="w-full px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -440,14 +462,18 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Enter Score"
                           value={formData.satScore}
-                          onChange={(e) => handleInputChange("satScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("satScore", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="date"
                           placeholder="dd/mm/yyyy"
                           value={formData.satDate}
-                          onChange={(e) => handleInputChange("satDate", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("satDate", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -463,14 +489,18 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Enter Score"
                           value={formData.actScore}
-                          onChange={(e) => handleInputChange("actScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("actScore", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="date"
                           placeholder="dd/mm/yyyy"
                           value={formData.actDate}
-                          onChange={(e) => handleInputChange("actDate", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("actDate", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -486,21 +516,27 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Name"
                           value={formData.apName}
-                          onChange={(e) => handleInputChange("apName", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("apName", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="text"
                           placeholder="Enter Score"
                           value={formData.apScore}
-                          onChange={(e) => handleInputChange("apScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("apScore", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="date"
                           placeholder="dd/mm/yyyy"
                           value={formData.apDate}
-                          onChange={(e) => handleInputChange("apDate", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("apDate", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -516,14 +552,18 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Enter Score"
                           value={formData.psatScore}
-                          onChange={(e) => handleInputChange("psatScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("psatScore", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="date"
                           placeholder="dd/mm/yyyy"
                           value={formData.psatDate}
-                          onChange={(e) => handleInputChange("psatDate", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("psatDate", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -539,14 +579,18 @@ export function MyPreferences() {
                           type="text"
                           placeholder="Enter Score"
                           value={formData.toeflScore}
-                          onChange={(e) => handleInputChange("toeflScore", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("toeflScore", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                         <input
                           type="date"
                           placeholder="dd/mm/yyyy"
                           value={formData.toeflDate}
-                          onChange={(e) => handleInputChange("toeflDate", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("toeflDate", e.target.value)
+                          }
                           className="px-3 py-3 border border-uniiq-neutral-200 rounded-md font-plus-jakarta text-[14px] text-uniiq-neutral-1100 placeholder:text-uniiq-gray-400 focus:outline-none focus:ring-2 focus:ring-uniiq-blue-primary focus:border-transparent"
                         />
                       </div>
@@ -594,7 +638,8 @@ export function MyPreferences() {
                   {/* Hours Per Week Slider */}
                   <div className="space-y-5">
                     <label className="font-plus-jakarta font-semibold text-[15px] text-uniiq-neutral-1100 block">
-                      How many hours per week can you realistically dedicate to new opportunities or prep?
+                      How many hours per week can you realistically dedicate to
+                      new opportunities or prep?
                     </label>
 
                     <div className="space-y-3">
@@ -603,12 +648,17 @@ export function MyPreferences() {
                         <div className="w-full h-2.5 bg-gray-200/60 rounded-lg border border-gray-200">
                           <div
                             className="h-2.5 bg-uniiq-accent-4-100 rounded-lg transition-all duration-300"
-                            style={{ width: `${(formData.hoursPerWeek / 10) * 100}%` }}
+                            style={{
+                              width: `${(formData.hoursPerWeek / 10) * 100}%`,
+                            }}
                           />
                         </div>
                         <div
                           className="absolute top-0 w-4 h-4 bg-uniiq-accent-4-300 border-2 border-white rounded-full shadow-md cursor-pointer transform -translate-y-1"
-                          style={{ left: `${(formData.hoursPerWeek / 10) * 100}%`, transform: `translateX(-50%) translateY(-25%)` }}
+                          style={{
+                            left: `${(formData.hoursPerWeek / 10) * 100}%`,
+                            transform: `translateX(-50%) translateY(-25%)`,
+                          }}
                         />
                         <input
                           type="range"
@@ -616,7 +666,12 @@ export function MyPreferences() {
                           max="10"
                           step="0.5"
                           value={formData.hoursPerWeek}
-                          onChange={(e) => handleInputChange("hoursPerWeek", parseFloat(e.target.value))}
+                          onChange={(e) =>
+                            handleInputChange(
+                              "hoursPerWeek",
+                              parseFloat(e.target.value),
+                            )
+                          }
                           className="absolute inset-0 w-full h-4 opacity-0 cursor-pointer"
                         />
                       </div>
