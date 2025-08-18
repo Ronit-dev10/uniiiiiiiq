@@ -80,7 +80,7 @@ export function SignIn() {
     if (result.success) {
       showSuccess(result.message);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/preferences");
       }, 1500);
     } else {
       showError(result.message);
