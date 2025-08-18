@@ -112,7 +112,7 @@ export function SignUp() {
     if (result.success) {
       showSuccess(result.message);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/preferences");
       }, 1500);
     } else {
       showError(result.message);
