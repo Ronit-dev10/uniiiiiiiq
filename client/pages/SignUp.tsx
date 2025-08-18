@@ -86,7 +86,7 @@ export function SignUp() {
         `Account created successfully! Welcome, ${result.user?.name}!`,
       );
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/preferences");
       }, 1500);
     } else {
       showError(result.message);
