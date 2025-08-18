@@ -9,10 +9,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SignUp } from "./pages/SignUp";
 import { SignIn } from "./pages/SignIn";
 import { MyPreferences } from "./pages/MyPreferences";
-import { Dashboard } from "./pages/Dashboard";
-import { Debug } from "./pages/Debug";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -26,13 +22,9 @@ const App = () => (
           <Route path="/" element={<SignUp />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<MyPreferences />} />
-          <Route path="/debug" element={<Debug />} />
-          <Route path="/home" element={<Dashboard />} />
-          <Route path="/old-home" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          {/* Redirect any other routes to signup */}
+          <Route path="*" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
