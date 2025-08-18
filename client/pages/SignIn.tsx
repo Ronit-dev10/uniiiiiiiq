@@ -54,7 +54,7 @@ export function SignIn() {
       console.log("✅ Sign in successful:", result.user);
       showSuccess(`Welcome back, ${result.user?.name}!`);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/preferences");
       }, 1500);
     } else {
       showError(result.message);
