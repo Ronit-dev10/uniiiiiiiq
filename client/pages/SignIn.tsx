@@ -54,7 +54,7 @@ export function SignIn() {
       console.log("✅ Sign in successful:", result.user);
       showSuccess(`Welcome back, ${result.user?.name}!`);
       setTimeout(() => {
-        navigate("/preferences");
+        navigate("/dashboard");
       }, 1500);
     } else {
       showError(result.message);
@@ -80,7 +80,7 @@ export function SignIn() {
     if (result.success) {
       showSuccess(result.message);
       setTimeout(() => {
-        navigate("/preferences");
+        navigate("/dashboard");
       }, 1500);
     } else {
       showError(result.message);
