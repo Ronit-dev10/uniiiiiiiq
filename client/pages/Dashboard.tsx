@@ -169,7 +169,8 @@ export function Dashboard() {
       name: "Brown University",
       location: "Providence, Rhode Island",
       match: "Competitive",
-      description: "Brown University is a private Ivy League institution with approximately 10,000 students.",
+      description:
+        "Brown University is a private Ivy League institution with approximately 10,000 students.",
       smartAdmitScore: "65%",
       gpa: "3.9",
       sat: "1600",
@@ -182,7 +183,8 @@ export function Dashboard() {
       name: "Princeton University",
       location: "Princeton, New Jersey",
       match: "Competitive",
-      description: "Princeton University is a private Ivy League institution with approximately 5,700 students.",
+      description:
+        "Princeton University is a private Ivy League institution with approximately 5,700 students.",
       smartAdmitScore: "65%",
       gpa: "3.9",
       sat: "1600",
@@ -278,9 +280,12 @@ export function Dashboard() {
         <div className="bg-white border-b border-gray-200 p-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Student Profile</h1>
+              <h1 className="text-2xl font-bold text-gray-900">
+                Student Profile
+              </h1>
               <p className="text-gray-600 mt-1">
-                Find ways to improve your academics, track your scores and access tutoring resources
+                Find ways to improve your academics, track your scores and
+                access tutoring resources
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -289,7 +294,9 @@ export function Dashboard() {
               </button>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                <span className="text-sm font-medium text-gray-700">Scarlet</span>
+                <span className="text-sm font-medium text-gray-700">
+                  Scarlet
+                </span>
                 <ChevronRight size={16} className="text-gray-400" />
               </div>
             </div>
@@ -302,19 +309,26 @@ export function Dashboard() {
           <div className="bg-gradient-to-r from-gray-900 to-gray-700 rounded-xl p-6 mb-6 text-white relative overflow-hidden">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Hi Scarlet, Welcome!</h2>
+                <h2 className="text-2xl font-bold mb-2">
+                  Hi Scarlet, Welcome!
+                </h2>
                 <p className="text-gray-300 mb-6">
-                  You're making great progress! Lorem ipsum dolor sit amet consectetur.
+                  You're making great progress! Lorem ipsum dolor sit amet
+                  consectetur.
                 </p>
-                
+
                 {/* Progress Steps */}
                 <div className="mb-6">
                   <p className="text-sm text-gray-300 mb-4">
-                    HERE ARE SOME SUGGESTED NEXT STEPS TO HELP YOU REACH YOUR GOALS:
+                    HERE ARE SOME SUGGESTED NEXT STEPS TO HELP YOU REACH YOUR
+                    GOALS:
                   </p>
                   <div className="flex items-center gap-4 overflow-x-auto">
                     {progressSteps.map((step, index) => (
-                      <div key={step.step} className="flex items-center gap-4 min-w-max">
+                      <div
+                        key={step.step}
+                        className="flex items-center gap-4 min-w-max"
+                      >
                         <div className="flex flex-col items-center">
                           <div
                             className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
@@ -354,35 +368,53 @@ export function Dashboard() {
               {/* Calendar Section */}
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900">Student Calendar</h3>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    Student Calendar
+                  </h3>
                   <span className="text-sm text-gray-500">Today</span>
                 </div>
                 <p className="text-sm text-gray-600 mb-4">
                   Lorem ipsum dolor sit amet consectetur.
                 </p>
-                
+
                 {/* Calendar Grid */}
                 <div className="grid grid-cols-7 gap-1 mb-4">
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Sun</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Mon</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Tue</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Wed</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Thu</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Fri</div>
-                  <div className="text-center text-xs font-medium text-gray-500 py-2">Sat</div>
-                  
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Sun
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Mon
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Tue
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Wed
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Thu
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Fri
+                  </div>
+                  <div className="text-center text-xs font-medium text-gray-500 py-2">
+                    Sat
+                  </div>
+
                   {[...Array(31)].map((_, i) => (
                     <div
                       key={i}
                       className={`aspect-square flex items-center justify-center text-sm hover:bg-gray-100 rounded cursor-pointer ${
-                        i + 1 === 15 ? "bg-gray-900 text-white" : "text-gray-700"
+                        i + 1 === 15
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-700"
                       }`}
                     >
                       {i + 1}
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="text-center text-xs text-gray-500 mb-4">
                   Thursday - 15 May, 2025
                 </div>
@@ -391,9 +423,13 @@ export function Dashboard() {
                 <div className="space-y-3">
                   {calendarEvents.map((event, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <span className="text-xs text-gray-500 min-w-16">{event.time}</span>
+                      <span className="text-xs text-gray-500 min-w-16">
+                        {event.time}
+                      </span>
                       <div className="flex-1 bg-gray-50 rounded-lg p-3">
-                        <p className="text-sm font-medium text-gray-900">{event.title}</p>
+                        <p className="text-sm font-medium text-gray-900">
+                          {event.title}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -408,18 +444,28 @@ export function Dashboard() {
               {/* Journey Snapshot */}
               <div className="bg-white rounded-xl p-6 border border-gray-200">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-gray-900">Your Journey Snapshot</h3>
-                  <button className="text-sm text-blue-600 hover:text-blue-700">View all</button>
+                  <h3 className="text-lg font-bold text-gray-900">
+                    Your Journey Snapshot
+                  </h3>
+                  <button className="text-sm text-blue-600 hover:text-blue-700">
+                    View all
+                  </button>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   {journeyStats.map((stat, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center`}>
-                        <span className="text-2xl font-bold">{stat.number}</span>
+                      <div
+                        className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center`}
+                      >
+                        <span className="text-2xl font-bold">
+                          {stat.number}
+                        </span>
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900">{stat.label}</p>
+                        <p className="text-sm font-medium text-gray-900">
+                          {stat.label}
+                        </p>
                         <ChevronRight size={16} className="text-gray-400" />
                       </div>
                     </div>
@@ -432,15 +478,21 @@ export function Dashboard() {
             <div className="space-y-6">
               {/* Recent Activities */}
               <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Recent Activities</h3>
-                
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                  Recent Activities
+                </h3>
+
                 <div className="space-y-4">
                   {recentActivities.map((activity, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
                       <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-900">{activity.title}</p>
-                        <p className="text-xs text-gray-500 mt-1">{activity.time}</p>
+                        <p className="text-sm font-medium text-gray-900">
+                          {activity.title}
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {activity.time}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -456,7 +508,9 @@ export function Dashboard() {
           {/* Best Fit Colleges */}
           <div className="bg-white rounded-xl p-6 border border-gray-200 mt-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold text-gray-900">Best Fit Colleges</h3>
+              <h3 className="text-lg font-bold text-gray-900">
+                Best Fit Colleges
+              </h3>
               <button className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
                 Shortlist Your Dream University
               </button>
@@ -467,14 +521,19 @@ export function Dashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {bestFitColleges.map((college, index) => (
-                <div key={index} className="border border-gray-200 rounded-xl p-6">
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-xl p-6"
+                >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-3">
                       <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                         <span className="text-2xl">{college.logo}</span>
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900">{college.name}</h4>
+                        <h4 className="font-bold text-gray-900">
+                          {college.name}
+                        </h4>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="px-2 py-1 bg-gray-100 text-xs font-medium rounded">
                             {college.match}
@@ -482,7 +541,9 @@ export function Dashboard() {
                         </div>
                         <div className="flex items-center gap-1 mt-1">
                           <MapPin size={12} className="text-gray-400" />
-                          <span className="text-xs text-gray-500">{college.location}</span>
+                          <span className="text-xs text-gray-500">
+                            {college.location}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -491,12 +552,16 @@ export function Dashboard() {
                     </button>
                   </div>
 
-                  <p className="text-sm text-gray-600 mb-4">{college.description}</p>
+                  <p className="text-sm text-gray-600 mb-4">
+                    {college.description}
+                  </p>
 
                   <div className="grid grid-cols-2 gap-4 text-xs">
                     <div>
                       <span className="text-gray-500">SmartAdmit Score: </span>
-                      <span className="font-medium">{college.smartAdmitScore}</span>
+                      <span className="font-medium">
+                        {college.smartAdmitScore}
+                      </span>
                     </div>
                     <div>
                       <span className="text-gray-500">Avg Aid: </span>
